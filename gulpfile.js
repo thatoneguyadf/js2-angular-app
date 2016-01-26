@@ -20,8 +20,7 @@ gulp.task('js-deps', function () {
         './public/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js'
     ])
         .pipe(concat('deps.js'))
-        .pipe(gulp.dest('./build/js'))
-        .pipe(livereload());
+        .pipe(gulp.dest('./build/js'));
 
     //move maps
     gulp.src([
@@ -42,8 +41,7 @@ gulp.task('css-deps', function () {
         "./public/bower_components/font-awesome/css/font-awesome.min.css"
     ])
         .pipe(concat('css-deps.css'))
-        .pipe(gulp.dest('./build/css'))
-        .pipe(livereload());
+        .pipe(gulp.dest('./build/css'));
 
     gulp.src('./public/bower_components/font-awesome/fonts/*')
         .pipe(gulp.dest('./build/fonts'));
@@ -82,7 +80,7 @@ gulp.task('less', function () {
 });
 
 gulp.task('watch', function () {
-    livereload.listen();
+    livereload.listen({port: 35730});
     watch(['./public/javascripts/*.js', './public/javascripts/**/*.js'], function () {
         gulp.start('js');
     });
