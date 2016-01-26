@@ -9,7 +9,8 @@ var gulp = require('gulp'),
     ngAnnotate = require('gulp-ng-annotate'),
     watch = require('gulp-watch'),
     gulpif = require('gulp-if'),
-    livereload = require('gulp-livereload');
+    livereload = require('gulp-livereload'),
+    serve = require('gulp-serve');
 
 gulp.task('js-deps', function () {
     gulp.src([
@@ -79,6 +80,16 @@ gulp.task('less', function () {
         .pipe(livereload());
 });
 
+gulp.task('serve', serve('public'));
+gulp.task('serve-build', serve(['public', 'build']));
+gulp.task('serve-prod', serve({
+    root: ['public', 'build'],
+    port: 8000,
+    middleware: function(req, res) {
+        // custom optional middleware
+    }
+}));
+
 gulp.task('watch', function () {
     livereload.listen({port: 35730});
     watch(['./public/javascripts/*.js', './public/javascripts/**/*.js'], function () {
@@ -94,4 +105,4 @@ gulp.task('watch', function () {
     });
 });
 
-gulp.task('default', ['js-deps', 'partials', 'css-deps', 'js', 'less', 'watch']);
+gulp.task('default', ['js-deps', 'partials', 'css-deps', 'js', 'less', 'watch', 'serve-prod']);
