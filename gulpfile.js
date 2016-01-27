@@ -80,14 +80,11 @@ gulp.task('less', function () {
         .pipe(livereload());
 });
 
-gulp.task('serve', serve('public'));
-gulp.task('serve-build', serve(['public', 'build']));
+gulp.task('serve', serve('.'));
+gulp.task('serve-build', serve('.'));
 gulp.task('serve-prod', serve({
-    root: ['public', 'build'],
-    port: 8000,
-    middleware: function(req, res) {
-        // custom optional middleware
-    }
+    root: '.',
+    port: 8000
 }));
 
 gulp.task('watch', function () {
