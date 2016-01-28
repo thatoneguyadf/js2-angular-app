@@ -81,11 +81,6 @@ gulp.task('less', function () {
 });
 
 gulp.task('serve', serve('.'));
-gulp.task('serve-build', serve('.'));
-gulp.task('serve-prod', serve({
-    root: '.',
-    port: 8000
-}));
 
 gulp.task('watch', function () {
     livereload.listen({port: 35730});
@@ -102,4 +97,4 @@ gulp.task('watch', function () {
     });
 });
 
-gulp.task('default', ['js-deps', 'partials', 'css-deps', 'js', 'less', 'watch', 'serve-prod']);
+gulp.task('default', ['js-deps', 'partials', 'css-deps', 'js', 'less', 'watch', 'serve']);
