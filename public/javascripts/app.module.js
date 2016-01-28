@@ -17,7 +17,12 @@
                     url: '/movies',
                     templateUrl: 'build/partials/movies/movies.html',
                     controller: 'MoviesController',
-                    controllerAs: 'movies'
+                    controllerAs: 'movies',
+                    resolve: {
+                        movies: function (MoviesService) {
+                            return MoviesService.getMovies();
+                        }
+                    }
                 })
                 .state('movies.movie', {
                     url: '/movie',
