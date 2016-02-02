@@ -1,6 +1,17 @@
-<div>
-    <h1>I'm in a partial</h1>
+<div data-ui-view>
+    <h1>Movies</h1>
     <ul>
-        <li data-ng-repeat="movie in movies.movies">{{ movie.title }}</li>
+        <li data-ng-repeat="movie in movies.movies">
+            <h3>
+                <a data-ui-sref="movies.movie({movie_title: movie.title})">
+                    {{ movie.title }}
+                </a>
+            </h3>
+            <p>
+                runtime: {{ movie.runTime }}  |
+                year released: {{ movie.releaseYear }}  |
+                genre: {{ movie.genre }}
+            </p>
+        </li>
     </ul>
 </div>

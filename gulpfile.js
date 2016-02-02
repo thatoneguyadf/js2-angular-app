@@ -20,6 +20,7 @@ gulp.task('js-deps', function () {
         './public/bower_components/angular-ui-router/release/angular-ui-router.js',
         './public/bower_components/angular-bootstrap/ui-bootstrap-tpls.js'
     ])
+        .pipe(sourcemaps.init())
         .pipe(concat('deps.js'))
         .pipe(ngAnnotate())
         .pipe(uglify())
@@ -60,8 +61,8 @@ gulp.task('js', function () {
         //.pipe(sourcemaps.init())
         .pipe(concat(outputFilename))
         .pipe(ngAnnotate())
-        .pipe(uglify())
-        .pipe(sourcemaps.write())
+        //.pipe(uglify())
+        //.pipe(sourcemaps.write())
         .pipe(gulp.dest(outputDir))
         .pipe(livereload());
 });

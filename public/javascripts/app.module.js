@@ -25,10 +25,15 @@
                     }
                 })
                 .state('movies.movie', {
-                    url: '/movie',
+                    url: '/:movie_title',
                     templateUrl: 'build/partials/movies/movie.html',
                     controller: 'MovieController',
-                    controllerAs: 'movie'
+                    controllerAs: 'movie',
+                    resolve: {
+                        movie: function (movies, MoviesService, $stateParams) {
+                            return MoviesService.find($stateParams.movie_title);
+                        }
+                    }
                 });
         });
 
