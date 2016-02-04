@@ -8,7 +8,7 @@
                 </a>
             </h3>
             <p>
-                runtime: {{ movie.runTime }}  |
+                runtime: {{ movie.runTime | runningHours }}  |
                 year released: {{ movie.releaseYear }}  |
                 genre: {{ movie.genre | titlecase }}
             </p>
