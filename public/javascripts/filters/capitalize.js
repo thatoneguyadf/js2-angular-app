@@ -11,13 +11,14 @@
 
                 if (input!== null) {
                     var inputCopy = input.toLowerCase().split(' ');
-
+                    var i = 0;
                     _.each(inputCopy, function (word) {
-                        if (inputCopy.indexOf(word) === 0 || !isLower(word)) {
-                            title.push(word.substring(0, 1).toUpperCase() + word.substring(1));
-                        } else {
+                        if (i !== 0 && isLower(word)) {
                             title.push(word);
+                        } else {
+                            title.push(word.substring(0, 1).toUpperCase() + word.substring(1));
                         }
+                        i++
                     });
                 }
                 return title.join(' ');
@@ -25,13 +26,8 @@
         });
 
     function  isLower(word) {
-        var lWords = ['of', 'the', 'a', 'in', 'at', 'and', 'an', 'but', 'or', 'to', 'the', 'into', 'by'];
-
-        for (var i = 0, len = lWords.length; i < len; i++) {
-            if (word === lWords[i]) {
-                return true;
-            }
-        }
+        var lWords = ['of', 'the', 'a', 'in', 'at', 'and', 'an', 'but', 'or', 'to', 'into', 'by'];
+        return lWords.indexOf(word) > -1;
     }
 
 }());
