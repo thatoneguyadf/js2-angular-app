@@ -4,13 +4,13 @@
         <li data-ng-repeat="movie in movies.movies">
             <h3>
                 <a data-ui-sref="movies.movie({movie_title: movie.title})">
-                    {{ movie.title }}
+                    {{ movie.title | titlecase }}
                 </a>
             </h3>
             <p>
                 runtime: {{ movie.runTime }}  |
                 year released: {{ movie.releaseYear }}  |
-                genre: {{ movie.genre }}
+                genre: {{ movie.genre | titlecase }}
             </p>
         </li>
     </ul>

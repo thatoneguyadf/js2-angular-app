@@ -7,5 +7,5 @@
             var vm = this;
 
             vm.movie = movie;
-        })
+        });
 }());

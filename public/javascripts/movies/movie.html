@@ -1,6 +1,6 @@
 <div data-ui-view>
-    <h1>{{ movie.movie.title }}</h1>
-    <p>genre: {{ movie.movie.genre }}</p>
+    <h1>{{ movie.movie.title | titlecase }}</h1>
+    <p>genre: {{ movie.movie.genre | titlecase }}</p>
     <p>year released: {{ movie.movie.releaseYear }}</p>
     <p>running time: {{ movie.movie.runTime }}</p>
     <p><strong>Description:</strong></p>
