@@ -1,8 +1,16 @@
-<div data-ui-view>
-    <h1>{{ movie.movie.title | titlecase }}</h1>
-    <p>genre: {{ movie.movie.genre | titlecase }}</p>
-    <p>year released: {{ movie.movie.releaseYear }}</p>
-    <p>running time: {{ movie.movie.runTime }}</p>
-    <p><strong>Description:</strong></p>
-    <p>{{ movie.movie.description }}</p>
+<div class="movie" data-ui-view>
+    <div class="content col-md-10 col-md-offset-1">
+        <h1>{{ movie.movie.title | titlecase }}</h1>
+
+        <hr>
+        <p>genre: {{ movie.movie.genre | titlecase }}</p>
+        <p>year released: {{ movie.movie.releaseYear }}</p>
+        <p>running time: {{ movie.movie.runTime | timeHours }}</p>
+        <p>Availability:
+            <span data-ng-show="movie.movie.checkedIn">In Stock</span>
+            <span data-ng-hide="movie.movie.checkedIn">Unavailable</span>
+        </p>
+        <h3><strong>Description:</strong></h3>
+        <p>{{ movie.movie.description }}</p>
+    </div>
 </div>

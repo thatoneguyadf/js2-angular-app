@@ -1,5 +1,21 @@
+@import "variables";
+@import "movies";
 @import "movie";
 
-a {
-  color: #0000FF;
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  background-color: @bg-grey;
+
+  .nav {
+    margin-bottom: -20px;
+  }
+
+  .content {
+    min-height: 100%;
+    background-color: @bg-white;
+    padding-top: 10px;
+  }
 }

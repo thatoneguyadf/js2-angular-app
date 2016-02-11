@@ -2,7 +2,7 @@
 
     'use strict';
 
-    angular.module('customFilters', [])
+    angular.module('customFilters')
 
         .filter('titlecase', function() {
             return function(input) {
@@ -18,7 +18,7 @@
                         } else {
                             title.push(word.substring(0, 1).toUpperCase() + word.substring(1));
                         }
-                        i++
+                        i++;
                     });
                 }
                 return title.join(' ');

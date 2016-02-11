@@ -11,6 +11,7 @@
 
             vm.makeMovies = function (data) {
                 _.each(data, function (l) {
+                    l.poster =
                    vm.movies.push(new Movie(l));
                 });
                 return vm.movies;
